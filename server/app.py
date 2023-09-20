@@ -24,21 +24,22 @@ def count(number):
         count += f'{num}\n'
     return count
 
-@app.route('/math/<int:num1><operation><int:num2>')
+@app.route('/math/<int:num1>/<operation>/<int:num2>')
 def math(num1, operation, num2):
+    result = 0
     if operation == '+':
-        return str(num1 + num2)
+        result = num1 + num2
     
     elif operation == '-':
-        return str(num1 - num2)
+        result = num1 - num2
     
     elif operation == '*':
-        return str(num1 * num2)
+        result= num1 * num2
     
     elif operation == 'div':
-        return str(num1 / num2)
+        result = num1 / num2
     
     elif operation == '%':
-        return str(num1 % num2)
+        result= num1 % num2
 
-    return 'Operation not recognized. Please use one of the following: + - * div %'
+    return str(result)
